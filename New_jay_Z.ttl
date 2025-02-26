@@ -1,0 +1,82 @@
+@prefix : <http://example.org/jayz/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Jay-Z Resource
+:JayZ a foaf:Person ;
+    foaf:name "Jay-Z" ;
+    dbo:birthPlace dbr:New_York_City ;
+    dbo:associatedAlbum :The_Blueprint .
+
+# Album Resource
+:The_Blueprint a dbo:Album ;
+    rdfs:label "The Blueprint" ;
+    dbo:artist :JayZ ;
+    dbo:releaseDate "2001-09-11"^^xsd:date ;
+    dbo:producer :JustBlaze, :KanyeWest, :Timbaland, :Eminem ;
+    rdfs:seeAlso <https://dbpedia.org/page/The_Blueprint> .
+
+# Producers
+:JustBlaze a foaf:Person ;
+    foaf:name "Just Blaze" ;
+    dbo:birthPlace dbr:New_Jersey ;
+    dbo:producerOf :The_Blueprint ;
+    rdfs:seeAlso <https://dbpedia.org/page/Just_Blaze> .
+
+:KanyeWest a foaf:Person ;
+    foaf:name "Kanye West" ;
+    dbo:birthPlace dbr:Atlanta ;
+    dbo:producerOf :The_Blueprint ;
+    rdfs:seeAlso <https://dbpedia.org/page/Kanye_West> .
+
+:Timbaland a foaf:Person ;
+    foaf:name "Timbaland" ;
+    dbo:birthPlace dbr:Norfolk,_Virginia ;
+    dbo:producerOf :The_Blueprint ;
+    rdfs:seeAlso <https://dbpedia.org/page/Timbaland> .
+
+:Eminem a foaf:Person ;
+    foaf:name "Eminem" ;
+    dbo:birthPlace dbr:St._Joseph,_Missouri ;
+    dbo:producerOf :The_Blueprint ;
+    rdfs:seeAlso <https://dbpedia.org/page/Eminem> .
+
+# Birthplaces with Geographic Coordinates
+dbr:New_York_City a dbo:Place ;
+    rdfs:label "New York City" ;
+    dbo:country "United States" ;
+    geo:lat 40.7128 ;
+    geo:long -74.0060 ;
+    rdfs:seeAlso <http://dbpedia.org/resource/New_York_City> .
+
+dbr:New_Jersey a dbo:Place ;
+    rdfs:label "New Jersey" ;
+    dbo:country "United States" ;
+    geo:lat 40.0583 ;
+    geo:long -74.4057 ;
+    rdfs:seeAlso <http://dbpedia.org/resource/New_Jersey> .
+
+dbr:Atlanta a dbo:Place ;
+    rdfs:label "Atlanta" ;
+    dbo:country "United States" ;
+    geo:lat 33.7490 ;
+    geo:long -84.3880 ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Atlanta> .
+
+dbr:Norfolk,_Virginia a dbo:Place ;
+    rdfs:label "Norfolk, Virginia" ;
+    dbo:country "United States" ;
+    geo:lat 36.8508 ;
+    geo:long -76.2859 ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Norfolk,_Virginia> .
+
+dbr:St._Joseph,_Missouri a dbo:Place ;
+    rdfs:label "St. Joseph, Missouri" ;
+    dbo:country "United States" ;
+    geo:lat 39.7686 ;
+    geo:long -94.8466 ;
+    rdfs:seeAlso <http://dbpedia.org/resource/St._Joseph,_Missouri> .
